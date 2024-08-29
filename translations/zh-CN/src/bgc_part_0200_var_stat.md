@@ -668,6 +668,49 @@ for(;;) {  // "永远"
 }
 ```
 
+### The `switch` Statement {#switch-statement}
+
+[i[`switch` statement]<]
+Depending on what languages you're coming from, you might or might not
+be familiar with `switch`, or C's version might even be more restrictive
+than you're used to. This is a statement that allows you to take a
+variety of actions depending on the value of an integer expression.
+
+Basically, it evaluates an expression to an integer value, jumps to the
+[i[`case` statement]<]`case` that corresponds to that value. Execution
+resumes from that point. If a `break`[i[`break` statement]<] statement is
+encountered, then execution jumps out of the `switch`.
+
+Here's an example where, for a given number of goats, we print out a
+gut-feel of how many goats that is.
+
+``` {.c .numberLines}
+#include <stdio.h>
+
+int main(void)
+{
+    int goat_count = 2;
+
+    switch (goat_count) {
+        case 0:
+            printf("You have no goats.\n");
+            break;
+
+        case 1:
+            printf("You have a singular goat.\n");
+            break;
+
+        case 2:
+            printf("You have a brace of goats.\n");
+            break;
+
+        default:
+            printf("You have a bona fide plethora of goats!\n");
+            break;
+    }
+}
+```
+
 在这个例子中，`switch`会跳转到`case 2`并从那里执行。当（如果）遇到`break`时，它会跳出`switch`。
 
 此外，您可能会在底部看到`default`标签。这就是当没有任何`case`匹配时会发生什么。
